@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: two-tier-app-svc
+
+spec:
+  selector:
+    app: two-tier-app
+  ports:
+    - protocol: TCP
+      port: 80 #bahar ka/contianer ka
+      targetPort: 5000 #pod ka port andar ka
+      nodePort: 30007 #bahar ki duniya ko access dene wala port
+  type: NodePort
